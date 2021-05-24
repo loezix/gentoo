@@ -2,13 +2,13 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-    <name><![CDATA[loezix-overlay]]></name>
-    <description lang="en"><![CDATA[loezix overlay]]></description>
-    <homepage>https://github.com/loezix/gentoo-overlay</homepage>
+    <name><![CDATA[gentoo.lzx.corp]]></name>
+    <description lang="en"><![CDATA[gentoo.lzx.corp]]></description>
+    <homepage>https://github.com/loezix/gentoo.lzx.corp</homepage>
     <owner type="person">
       <email>loezix@icloud.com</email>
       <name><![CDATA[loezix]]></name>
     </owner>
-    <source type="git">git://github.com/loezix/gentoo-overlay.git</source>
+    <source type="git">git://github.com/loezix/gentoo.lzx.corp.git</source>
   </repo>
 </repositories>
