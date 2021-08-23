@@ -40,30 +40,17 @@ pkg_setup() {
 }
 
 src_configure() {
-	ARCH=$(ctarget) emake config \
-		T=$(ctarget)-native-linuxapp-$(tc-get-compiler-type)
+    cd "${S}" || die
+	meson build
 }
 
 src_compile() {
 	cd "${S}/build" || die
-	ARCH=$(ctarget) V=1 emake \
-		RTE_DEVEL_BUILD=n \
-		CONFIG_RTE_BUILD_SHARED_LIB=y \
-		CONFIG_RTE_LIBRTE_PMD_OPENSSL=$(use ssl && echo 'y' || echo 'n') \
-		EXTRA_CFLAGS="${CFLAGS}"
-	use static-libs && ARCH=$(ctarget) V=1 emake \
-		RTE_DEVEL_BUILD=n \
-		CONFIG_RTE_BUILD_SHARED_LIB=n \
-		CONFIG_RTE_LIBRTE_PMD_OPENSSL=$(use ssl && echo 'y' || echo 'n') \
-		EXTRA_CFLAGS="${CFLAGS}"
+	ninja
 }
 
 src_install() {
-	pushd "${S}/build" > /dev/null || die
-	sed -i -e 's/^ifdef\ T/ifdef\ TMPL/' ../mk/rte.sdkinstall.mk
-	ARCH=$(ctarget) V=1 emake install \
-			DESTDIR=${D} \
-			libdir="${EPREFIX}/usr/$(get_libdir)" \
-			prefix="${EPREFIX}/usr"
-	popd > /dev/null
+	cd "${S}/build" || die
+	ninja install
+    ldconfig
 }
