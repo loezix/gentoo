@@ -41,10 +41,10 @@ pkg_setup() {
 
 src_configure() {
     cd "${S}" || die
-	local conf = "--prefix=/usr "
+	local conf = "-Dprefix=/usr "
 
 	if use static-libs; then
-		conf+="--default_library=static "
+		conf+="-Ddefault_library=static "
 	fi
 	
 	meson ${conf} build
