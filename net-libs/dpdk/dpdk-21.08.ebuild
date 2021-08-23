@@ -2,7 +2,7 @@
 
 EAPI=6
 
-inherit toolchain-funcs flag-o-matic linux-info linux-mod
+inherit meson toolchain-funcs flag-o-matic linux-info linux-mod
 
 DESCRIPTION="A set of libraries and drivers for fast packet processing"
 HOMEPAGE="http://dpdk.org/"
@@ -41,24 +41,23 @@ pkg_setup() {
 
 src_configure() {
     cd "${S}" || die
-	local conf = "-Dprefix=/usr "
-
-	if use static-libs; then
-		conf+="-Ddefault_library=static "
-	fi
+	local emesonargs=(
+		$(meson_feature static-libs default_library)
+	) 	
+	meson_src_configure
 	
-	meson ${conf} build
-	
-
 }
 
 src_compile() {
-	cd "${S}/build" || die
-	ninja
+	#cd "${S}/build" || die
+	#ninja
+	meson_src_compile
 }
 
 src_install() {
-	cd "${S}/build" || die
-	ninja install
-    ldconfig
+	#cd "${S}/build" || die
+	#ninja install
+    #ldconfig
+	meson_src_install
+	ldconfig
 }
