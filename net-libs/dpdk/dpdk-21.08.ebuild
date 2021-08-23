@@ -41,7 +41,15 @@ pkg_setup() {
 
 src_configure() {
     cd "${S}" || die
-	meson build
+	local conf = "-prefix=/usr"
+
+	if use static-libs; then
+		conf+="-default_library=static"
+	fi
+	
+	meson ${conf} build
+	
+
 }
 
 src_compile() {
