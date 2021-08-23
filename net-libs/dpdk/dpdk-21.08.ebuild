@@ -40,24 +40,17 @@ pkg_setup() {
 }
 
 src_configure() {
-    cd "${S}" || die
 	local mesonargs=(
-		$(meson_feature static-libs default_library)
+		-Ddefault_library=$(usex static-libs static shared)
 	) 	
 	meson_src_configure
 	
 }
 
 src_compile() {
-	#cd "${S}/build" || die
-	#ninja
 	meson_src_compile
 }
 
 src_install() {
-	#cd "${S}/build" || die
-	#ninja install
-    #ldconfig
 	meson_src_install
-	ldconfig
 }
