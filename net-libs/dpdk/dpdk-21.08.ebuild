@@ -41,7 +41,7 @@ pkg_setup() {
 
 src_configure() {
     cd "${S}" || die
-	local emesonargs=(
+	local mesonargs=(
 		$(meson_feature static-libs default_library)
 	) 	
 	meson_src_configure
