@@ -2,13 +2,14 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-    <name><![CDATA[loezix]]></name>
-    <description lang="en"><![CDATA[loezix]]></description>
+    <name>loezix</name>
+    <description lang="en">my repo</description>
     <homepage>https://github.com/loezix/gentoo-repo</homepage>
     <owner type="person">
       <email>loezix@icloud.com</email>
-      <name><![CDATA[loezix]]></name>
+      <name>loezix</name>
     </owner>
+    <source type="git">https://github.com/loezix/gentoo-repo.git</source>
     <source type="git">git://github.com/loezix/gentoo-repo.git</source>
   </repo>
 </repositories>
