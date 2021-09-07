@@ -13,10 +13,11 @@ SRC_URI="https://www.openvswitch.org/releases/${P}.tar.gz"
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 x86"
-IUSE="debug modules monitor +ssl dpdk"
+IUSE="debug dpdk modules monitor +ssl"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
+	dpdk? ( net-libs/dpdk:0= )
 	ssl? ( dev-libs/openssl:0= )
 	${PYTHON_DEPS}
 	~dev-python/ovs-2.13.3[${PYTHON_USEDEP}]
