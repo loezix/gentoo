@@ -9,7 +9,7 @@ DESCRIPTION="A set of libraries and drivers for fast packet processing"
 HOMEPAGE="http://dpdk.org/"
 SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 
-LICENSE="BSD"
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="ssl static-libs"
@@ -45,7 +45,6 @@ src_configure() {
 		-Ddefault_library=$(usex static-libs static shared)
 	)
 	meson_src_configure
-
 }
 
 src_compile() {
