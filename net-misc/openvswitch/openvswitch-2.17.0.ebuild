@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -12,7 +12,7 @@ SRC_URI="https://www.openvswitch.org/releases/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 x86"
+KEYWORDS="~amd64"
 IUSE="debug dpdk modules monitor +ssl"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -77,8 +77,8 @@ src_configure() {
 		--with-pkidir=/etc/ssl/openvswitch \
 		--with-dbdir=/var/lib/openvswitch \
 		$(use_enable ssl) \
-		$(use_enable !debug ndebug) \
-		$(usex dpdk --with-dpdk=yes)
+		$(usex dpdk --with-dpdk=yes) \
+		$(use_enable !debug ndebug)
 }
 
 src_compile() {
