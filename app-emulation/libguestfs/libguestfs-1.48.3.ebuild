@@ -100,7 +100,6 @@ DEPEND="${COMMON_DEPEND}
 	ocaml? (
 		dev-ml/ounit2[ocamlopt]
 		|| (
-			<dev-ml/ocaml-gettext-0.4.2
 			dev-ml/ocaml-gettext-stub[ocamlopt]
 		)
 	)
