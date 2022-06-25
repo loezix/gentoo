@@ -20,6 +20,7 @@ pkg_setup() {
 }
 
 src_prepare() {
+	default
 	true
 }
 
