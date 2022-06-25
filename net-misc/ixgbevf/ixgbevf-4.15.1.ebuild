@@ -41,7 +41,7 @@ src_install() {
 		DESTDIR="${D}"
 	)
 
-	emake "${myemakeargs[@]}" install
+	emake "${myemakeargs[@]}" modules_install
 }
 
 pkg_postinst() {

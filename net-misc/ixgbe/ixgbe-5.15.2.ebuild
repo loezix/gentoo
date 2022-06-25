@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit dist-kernel-utils linux-mod
+inherit flag-o-matic toolchain-funcs dist-kernel-utils linux-mod
 DESCRIPTION="Intel 10 Gigabit Ethernet Network Connections with PCI Express*."
 HOMEPAGE="https://www.intel.com/content/www/us/en/download/14302/intel-network-adapter-driver-for-pcie-intel-10-gigabit-ethernet-network-connections-under-linux.html"
 SRC_URI="https://ufpr.dl.sourceforge.net/project/e1000/${PN}%20stable/${PV}/${PN}-${PV}.tar.gz"
@@ -42,7 +42,7 @@ src_install() {
 		DESTDIR="${D}"
 	)
 
-	emake "${myemakeargs[@]}" install
+	emake "${myemakeargs[@]}" modules_install
 }
 
 pkg_postinst() {
