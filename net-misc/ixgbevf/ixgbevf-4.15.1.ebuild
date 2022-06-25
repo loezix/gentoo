@@ -8,44 +8,47 @@ HOMEPAGE="https://www.intel.com/content/www/us/en/download/14302/intel-network-a
 SRC_URI="https://ufpr.dl.sourceforge.net/project/e1000/${PN}%20stable/${PV}/${PN}-${PV}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64"
+SLOT="0"
 IUSE="debug"
 
 S=${WORKDIR}/${P}/src
 
 pkg_setup() {
-	linux-mod_pkg_setup
+    linux-mod_pkg_setup
 }
 
 src_prepare() {
-	default
+    default
 }
 
 src_configure() {
-	true
+    true
 }
 
 src_compile() {
-	set_arch_to_kernel
-	emake
+    set_arch_to_kernel
+    emake
 }
 
 src_install() {
-	set_arch_to_kernel
+    set_arch_to_kernel
 
-	myemakeargs+=(
-		DEPMOD=:
-		DESTDIR="${D}"
-	)
+    myemakeargs+=(
+        DEPMOD=:
+        INSTALL_MOD_PATH ?= $(DESTDIR) in module/Makefile
+        DESTDIR="${D}"
+    )
 
-	emake "${myemakeargs[@]}" install
+    emake "${myemakeargs[@]}" install
+
+    einstalldocs
 }
 
 pkg_postinst() {
-	linux-mod_pkg_postinst
-	if [[ -z ${ROOT} ]] && use dist-kernel; then
-		set_arch_to_pkgmgr
-		dist-kernel_reinstall_initramfs "${KV_DIR}" "${KV_FULL}"
-	fi
+    linux-mod_pkg_postinst
+    if [[ -z ${ROOT} ]] && use dist-kernel; then
+        set_arch_to_pkgmgr
+        dist-kernel_reinstall_initramfs "${KV_DIR}" "${KV_FULL}"
+    fi
 }

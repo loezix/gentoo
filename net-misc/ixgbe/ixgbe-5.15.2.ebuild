@@ -35,16 +35,15 @@ src_compile() {
 src_install() {
 	set_arch_to_kernel
 
-	#1myemakeargs+=(
-	#	DEPMOD=:
-	#	DESTDIR="${D}"
-	#)
+	myemakeargs+=(
+		DEPMOD=:
+		INSTALL_MOD_PATH ?= $(DESTDIR) in module/Makefile
+		DESTDIR="${D}"
+	)
 
-	#emake "${myemakeargs[@]}" install
-}
+	emake "${myemakeargs[@]}" install
 
-pkg_preinst() {
-    emake install
+	einstalldocs
 }
 
 pkg_postinst() {
