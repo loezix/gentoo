@@ -9,7 +9,7 @@ SRC_URI="https://ufpr.dl.sourceforge.net/project/e1000/${PN}%20stable/${PV}/${PN
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="~amd64"
 IUSE="debug"
 
 S=${WORKDIR}/${P}/src
