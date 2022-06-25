@@ -15,15 +15,13 @@ IUSE="debug"
 
 DOCS=( README )
 
-S=${WORKDIR}/${P}/src
-
 pkg_setup() {
 	linux-mod_pkg_setup
 }
 
 src_prepare() {
+	mv src/* .
 	default
-	true
 }
 
 src_configure() {
