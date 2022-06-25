@@ -42,8 +42,6 @@ src_install() {
 	)
 
 	emake "${myemakeargs[@]}" install
-
-	einstalldocs
 }
 
 pkg_postinst() {
