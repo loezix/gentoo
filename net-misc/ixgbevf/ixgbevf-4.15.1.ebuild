@@ -12,8 +12,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug"
 
-DOCS=( README )
-
 S=${WORKDIR}/${P}/src
 
 pkg_setup() {
@@ -41,7 +39,7 @@ src_install() {
 		DESTDIR="${D}"
 	)
 
-	emake "${myemakeargs[@]}" modules_install
+	emake "${myemakeargs[@]}" install
 }
 
 pkg_postinst() {

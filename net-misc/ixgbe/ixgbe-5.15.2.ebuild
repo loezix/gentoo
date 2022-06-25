@@ -13,8 +13,6 @@ KEYWORDS="~amd64"
 SLOT="0"
 IUSE="debug"
 
-DOCS=( README )
-
 S=${WORKDIR}/${P}/src
 
 pkg_setup() {
@@ -37,12 +35,16 @@ src_compile() {
 src_install() {
 	set_arch_to_kernel
 
-	myemakeargs+=(
-		DEPMOD=:
-		DESTDIR="${D}"
-	)
+	#1myemakeargs+=(
+	#	DEPMOD=:
+	#	DESTDIR="${D}"
+	#)
 
-	emake "${myemakeargs[@]}" modules_install
+	#emake "${myemakeargs[@]}" install
+}
+
+pkg_preinst() {
+    emake install
 }
 
 pkg_postinst() {
