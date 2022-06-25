@@ -14,6 +14,8 @@ IUSE="debug"
 
 S=${WORKDIR}/${P}/src
 
+DOCS=( README )
+
 pkg_setup() {
 	linux-mod_pkg_setup
 }

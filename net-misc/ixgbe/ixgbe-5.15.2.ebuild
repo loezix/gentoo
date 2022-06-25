@@ -13,6 +13,8 @@ KEYWORDS="~amd64"
 SLOT="0"
 IUSE="debug"
 
+DOCS=( README )
+
 S=${WORKDIR}/${P}/src
 
 pkg_setup() {
