@@ -5,7 +5,7 @@ EAPI=7
 
 inherit autotools dist-kernel-utils flag-o-matic linux-mod toolchain-funcs
 
-DESCRIPTION="Includes Linux*-based drivers version 5.15.2 for Intel® 10 Gigabit Ethernet Network Connections with PCI Express*."
+DESCRIPTION="Linux*-based drivers for Intel® 10 Gigabit Ethernet Network Connections with PCI Express*."
 HOMEPAGE="https://www.intel.com/content/www/us/en/download/14302/intel-network-adapter-driver-for-pcie-intel-10-gigabit-ethernet-network-connections-under-linux.html"
 SRC_URI="https://sourceforge.net/projects/e1000/files/${PN}%20stable/${PV}/${PN}-${PV}.tar.gz/download"
 LICENSE="GPL-2"
