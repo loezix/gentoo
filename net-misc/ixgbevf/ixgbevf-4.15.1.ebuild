@@ -12,9 +12,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="debug"
 
-S=${WORKDIR}/${P}/src
-
 DOCS=( README )
+
+S=${WORKDIR}/${P}/src
 
 pkg_setup() {
 	linux-mod_pkg_setup
@@ -22,7 +22,6 @@ pkg_setup() {
 
 src_prepare() {
 	default
-	true
 }
 
 src_configure() {
