@@ -9,6 +9,7 @@ HOMEPAGE="https://www.intel.com/content/www/us/en/download/14302/intel-network-a
 SRC_URI="https://ufpr.dl.sourceforge.net/project/e1000/${PN}%20stable/${PV}/${PN}-${PV}.tar.gz"
 
 LICENSE="GPL-2"
+KEYWORDS="amd64"
 SLOT="0"
 IUSE="debug"
 
