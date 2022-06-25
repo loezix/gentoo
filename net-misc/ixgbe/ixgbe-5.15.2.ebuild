@@ -37,8 +37,7 @@ src_install() {
 
 	myemakeargs+=(
 		DEPMOD=:
-		INSTALL_MOD_PATH ?= $(DESTDIR) in module/Makefile
-		DESTDIR="${D}"
+		INSTALL_MOD_PATH="${D}"
 	)
 
 	emake "${myemakeargs[@]}" install
