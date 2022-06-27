@@ -10,7 +10,7 @@ HOMEPAGE="https://gitlab.gnome.org/GNOME/console"
 
 LICENSE="GPL-3+"
 SLOT="0"
-IUSE="debug +gnome-shell +nautilus +vanilla"
+IUSE="debug +gnome-shell +nautilus vanilla"
 SRC_URI="https://download.gnome.org/sources/gnome-console/42/gnome-console-42.beta.tar.xz"
 
 KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~ia64 ~mips ~ppc ~ppc64 ~riscv ~sparc ~x86 ~amd64-linux ~x86-linux"
@@ -37,6 +37,7 @@ BDEPEND="
 	dev-util/gdbus-codegen
 	dev-util/glib-utils
 	dev-util/itstool
+	dev-lang/sassc
 	>=sys-devel/gettext-0.19.8
 	virtual/pkgconfig
 "
@@ -46,17 +47,17 @@ DOC_CONTENTS="To get previous working directory inherited in new opened tab, or
 	to add the following line to your ~/.bashrc:\n
 	. /etc/profile.d/vte-2.91.sh"
 
+src_unpack() {
+	default
+	mv ${WORKDIR}/gnome-console-42.beta ${WORKDIR}/${P}	
+}
+
 src_prepare() {
 	default
 }
 
 src_configure() {
-	local emesonargs=(
-		$(meson_use debug dbg)
-		-Ddocs=false
-		$(meson_use nautilus nautilus_extension)
-		$(meson_use gnome-shell search_provider)
-	)
+	
 	meson_src_configure
 }
 
