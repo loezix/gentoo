@@ -2,7 +2,7 @@
  <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
  <pkgmetadata>
    <use>
-     <flag name="dpdk">Build with DPDK API support</flag>
+     <flag name="dpdk">Build with DPDK support</flag>
      <flag name="monitor">Build the Python and GUI dependent monitor applications</flag>
    </use>
  </pkgmetadata>

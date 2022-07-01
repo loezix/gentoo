@@ -12,11 +12,12 @@ SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="ssl static-libs"
+IUSE="debug cuda numa ssl static-libs"
 
 DEPEND="
-	sys-process/numactl
+	numa? ( sys-process/numactl:* )
 	ssl? ( dev-libs/openssl:* )
+	cuda? ( dev-util/nvidia-cuda-sdk:* )
 "
 RDEPEND="${DEPEND}"
 DEPEND="
