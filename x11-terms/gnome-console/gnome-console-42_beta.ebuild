@@ -49,7 +49,7 @@ DOC_CONTENTS="To get previous working directory inherited in new opened tab, or
 
 src_unpack() {
 	default
-	mv ${WORKDIR}/gnome-console-42.beta ${WORKDIR}/${P}	
+	mv ${WORKDIR}/gnome-console-42.beta ${WORKDIR}/${P}
 }
 
 src_prepare() {
@@ -57,7 +57,6 @@ src_prepare() {
 }
 
 src_configure() {
-	
 	meson_src_configure
 }
 
