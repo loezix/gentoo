@@ -2,7 +2,10 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
    <use>
-     <flag name="static-libs">Build static versions of dynamic libraries as well</flag>
-     <flag name="debug">Enable debug</flag>
+    <flag name="debug">Enable debug</flag>
+    <flag name="cuda">The CUDA GPU driver library (librte_gpu_cuda) provides support for NVIDIA GPUs</flag>
+    <flag name="numa">NUMA is required by most modern machines, not needed for non-NUMA architectures.</flag>
+    <flag name="ssl">OpenSSL Crypto Poll Mode Driver</flag>
+    <flag name="static-libs">Build static versions of dynamic libraries as well</flag>
    </use>
 </pkgmetadata>
