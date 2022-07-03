@@ -19,7 +19,7 @@ RDEPEND="
 	dpdk? ( net-libs/dpdk:0= )
 	ssl? ( dev-libs/openssl:0= )
 	${PYTHON_DEPS}
-	~dev-python/ovs-2.13.3[${PYTHON_USEDEP}]
+	dev-python/ovs[${PYTHON_USEDEP}]
 	dev-python/twisted[conch,${PYTHON_USEDEP}]
 	dev-python/zope-interface[${PYTHON_USEDEP}]
 	debug? ( dev-lang/perl )"
