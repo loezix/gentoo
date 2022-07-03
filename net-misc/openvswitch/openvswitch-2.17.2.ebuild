@@ -3,6 +3,7 @@
 
 EAPI=7
 PYTHON_COMPAT=( python3_{9,10,11} )
+
 inherit autotools linux-info linux-mod python-r1 systemd tmpfiles
 DESCRIPTION="Production quality, multilayer virtual switch"
 HOMEPAGE="https://www.openvswitch.org"
