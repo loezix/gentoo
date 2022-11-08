@@ -24,7 +24,11 @@ DEPEND="
 	acct-group/minio
 "
 
-S="${WORKDIR}/${PN}-RELEASE.${MY_PV}"
+src_unpack() {
+	mkdir ${WORKDIR}/${P}
+	tar zxf ${DISTDIR}/${P}.tar.gz -C ${WORKDIR}/${P} --strip-components=1
+
+}
 
 src_prepare() {
 	default
