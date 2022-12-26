@@ -7,11 +7,12 @@ inherit go-module systemd
 
 MY_PV="$(ver_cut 1-3)T$(ver_cut 4-7)Z"
 MY_PV=${MY_PV//./-}
-EGIT_COMMIT=feafccf0072a9b5fbddc33553890ff56cb2f83b6
+#EGIT_COMMIT=feafccf0072a9b5fbddc33553890ff56cb2f83b6
 
 DESCRIPTION="An Amazon S3 compatible object storage server"
 HOMEPAGE="https://github.com/minio/minio"
 SRC_URI="https://github.com/minio/minio/archive/RELEASE.${MY_PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI+=" https://github.com/loezix/gentoo-repo/releases/download/go-deps/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
@@ -23,12 +24,6 @@ DEPEND="
 	acct-user/minio
 	acct-group/minio
 "
-
-src_unpack() {
-	mkdir ${WORKDIR}/${P}
-	tar zxf ${DISTDIR}/${P}.tar.gz -C ${WORKDIR}/${P} --strip-components=1
-
-}
 
 src_prepare() {
 	default
@@ -45,7 +40,8 @@ src_compile() {
 	MINIO_RELEASE="${MY_PV}"
 	go run buildscripts/gen-ldflags.go || die
 	go build \
-		--ldflags "$(go run buildscripts/gen-ldflags.go)" -o ${PN} || die
+			--ldflags "$(go run buildscripts/gen-ldflags.go)" -o ${PN} || die
+	make
 }
 
 src_install() {
