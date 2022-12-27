@@ -26,9 +26,15 @@ DEPEND="
 
 S="${WORKDIR}/${PN}-RELEASE.${MY_PV}"
 
+src_prepare() {
+    default
+    sed -i -e "s/+ commitID().*// " buildscripts/gen-ldflags.go || die
+}
+
+
 src_compile() {
-	MINIO_RELEASE="${MY_PV}"
-    go build
+    MINIO_RELEASE="${MY_PV}"
+    go build --ldflags "$(go run buildscripts/gen-ldflags.go ${MY_PV})"
 }
 
 src_install() {
