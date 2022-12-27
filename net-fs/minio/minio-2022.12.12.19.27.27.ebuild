@@ -35,7 +35,10 @@ src_install() {
 	dobin minio
 
 	insinto /etc/default
-	doins "${FILESDIR}"/minio.default
+	newins "${FILESDIR}/minio" minio.default
+
+	insinto /etc/conf.d
+	doins "${FILESDIR}/minio"
 
 	dodoc -r README.md CONTRIBUTING.md docs
 

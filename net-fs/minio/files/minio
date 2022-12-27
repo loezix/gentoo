@@ -1,0 +1,2 @@
+MINIO_VOLUMES="/var/lib/minio"
+MINIO_OPTS="--address :9000 --console-address :9001"

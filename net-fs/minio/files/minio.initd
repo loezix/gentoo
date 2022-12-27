@@ -5,7 +5,6 @@
 description="Minio Object Storage Server"
 pidfile=${pidfile:-"/run/${SVCNAME}.pid"}
 command="/usr/bin/minio"
-command_args="${command_args:-server /var/lib/minio}"
+command_args="${command_args:-server $MINIO_VOLUMES $MINIO_OPTS}"
 command_background="true"
-start_stop_daemon_args="--stdout /var/log/${SVCNAME}.log \
-	--stderr /var/log/${SVCNAME}.log"
+start_stop_daemon_args="--stdout /var/log/${SVCNAME}.log --stderr /var/log/${SVCNAME}.log"
