@@ -11,7 +11,7 @@ MY_PV=${MY_PV//./-}
 DESCRIPTION="An Amazon S3 compatible object storage server"
 HOMEPAGE="https://github.com/minio/minio"
 SRC_URI="https://github.com/minio/minio/archive/RELEASE.${MY_PV}.tar.gz -> ${P}.tar.gz"
-SRC_URI+=" https://github.com/loezix/gentoo-repo/releases/download/go-deps/${PN}-${PV}-deps.tar.xz"
+SRC_URI+=" https://github.com/loezix/gentoo-repo/releases/download/net-fs%2F${P}/${P}-deps.tar.xz"
 
 LICENSE="Apache-2.0 BSD BSD-2 MIT MPL-2.0"
 SLOT="0"
