@@ -19,7 +19,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="evdev experimental jack +libinput +logind mpd mpris network +popups pipewire pulseaudio sndio systemd test tray +udev upower wifi"
+IUSE="evdev experimental jack +libinput +logind cava mpd mpris network +popups pipewire pulseaudio sndio systemd test tray +udev upower wifi"
 REQUIRED_USE="
 	mpris? ( logind )
 	upower? ( logind )
@@ -47,6 +47,7 @@ RDEPEND="
 	gui-libs/wlroots:=
 	x11-libs/gtk+:3[wayland]
 	x11-libs/libxkbcommon
+	cava ? (media-sound/cava)
 	evdev? ( dev-libs/libevdev:= )
 	jack? ( virtual/jack )
 	libinput? ( dev-libs/libinput:= )
