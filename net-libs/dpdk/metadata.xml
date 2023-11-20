@@ -4,8 +4,10 @@
    <use>
     <flag name="debug">Enable debug</flag>
     <flag name="cuda">The CUDA GPU driver library (librte_gpu_cuda) provides support for NVIDIA GPUs</flag>
+    <flag name="fastpath">Enable fast path trace points</flag>
     <flag name="numa">NUMA is required by most modern machines, not needed for non-NUMA architectures.</flag>
     <flag name="ssl">OpenSSL Crypto Poll Mode Driver</flag>
+    <flag name="iova-as-pa">Support the use of physical addresses for IO addresses, such as used by UIO or VFIO in no-IOMMU mode</flag>
     <flag name="static-libs">Build static versions of dynamic libraries as well</flag>
    </use>
 </pkgmetadata>
