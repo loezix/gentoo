@@ -47,7 +47,7 @@ RDEPEND="
 	gui-libs/wlroots:=
 	x11-libs/gtk+:3[wayland]
 	x11-libs/libxkbcommon
-	cava ? (media-sound/cava)
+	cava? ( media-sound/cava )
 	evdev? ( dev-libs/libevdev:= )
 	jack? ( virtual/jack )
 	libinput? ( dev-libs/libinput:= )
@@ -77,9 +77,12 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
+	if use cava; then
+		meson subprojects download cava
+	fi
 	local emesonargs=(
 		-Dman-pages=enabled
-		-Dcava=disabled
+		$(meson_feature cava)
 		$(meson_feature evdev libevdev)
 		$(meson_feature jack)
 		$(meson_feature libinput)
