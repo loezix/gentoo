@@ -12,7 +12,7 @@ SRC_URI="http://fast.${PN}.org/rel/${P}.tar.xz"
 LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug bpf cuda fastpath hpet iova-as-pa isa-l kmod numa ssl static-libs pgo xdp"
+IUSE="debug bpf cuda fastpath hpet iova-as-pa isa-l kmod lto numa ssl static-libs pgo xdp"
 
 BDEPEND="
     bpf? ( dev-libs/libbpf )
@@ -43,17 +43,17 @@ pkg_setup() {
 }
 
 src_configure() {
-	local mesonargs=(
-	    -Dbuildtype=$(usex debug debug release)
-		-Ddefault_library=$(usex static-libs both shared)
+	local emesonargs=(
+		-Ddefault_library=$(usex static-libs static shared)
 		-Denable_iova_as_pa=$(usex iova-as-pa true false)
 		-Denable_trace_fp=$(usex fastpath true false)
 		-Denable_kmods=$(usex kmod true false)
-		-Db_pgo=$(usex pgo use off)i
-		-Dcmake_prefix_path=$(usex cuda "/opt/cuda/include:/opt/cuda/lib64" "")
-		$(meson_use hpet)
+		-Db_lto=$(usex lto true false)
+		-Db_pgo=$(usex pgo use off)
+		-Dc_args=$(usex cuda "-I/opt/cuda/include")
+		-Duse_hpet=$(usex hpet true false)
 	)
-	meson_src_configure
+	meson_src_configure --buildtype=$(usex debug debug release)
 }
 
 src_compile() {
