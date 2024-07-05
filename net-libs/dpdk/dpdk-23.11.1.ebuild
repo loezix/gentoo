@@ -34,8 +34,12 @@ function ctarget() {
 }
 
 CONFIG_CHECK="~IOMMU_SUPPORT ~AMD_IOMMU ~VFIO ~VFIO_PCI ~UIO ~UIO_PDRV_GENIRQ ~UIO_DMEM_GENIRQ"
+
+
 if [ "$SLOT" != "0" ] ; then
 	S=${WORKDIR}/${PN}-${SLOT#0/}-${PV}
+else
+	S=${WORKDIR}/${PN}-stable-${PV}
 fi
 
 pkg_setup() {
@@ -44,16 +48,19 @@ pkg_setup() {
 
 src_configure() {
 	local emesonargs=(
-		-Ddefault_library=$(usex static-libs static shared)
-		-Denable_iova_as_pa=$(usex iova-as-pa true false)
-		-Denable_trace_fp=$(usex fastpath true false)
-		-Denable_kmods=$(usex kmod true false)
-		-Db_lto=$(usex lto true false)
+		$(meson_use hpet use_hpet)
+		$(meson_use iova-as-pa enable_iova_as_pa)
+		$(meson_use fastpath enable_trace_fp)
+		$(meson_use kmod enable_kmods)
+		$(meson_use lto b_lto)
+
 		-Db_pgo=$(usex pgo use off)
+
 		-Dc_args=$(usex cuda "-I/opt/cuda/include")
-		-Duse_hpet=$(usex hpet true false)
+
+		-Ddefault_library=$(usex static-libs static shared)
 	)
-	meson_src_configure --buildtype=$(usex debug debug release)
+	meson_src_configure # --buildtype=$(usex debug debug release)
 }
 
 src_compile() {
