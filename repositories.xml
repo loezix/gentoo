@@ -3,13 +3,13 @@
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
     <name>loezix</name>
-    <description lang="en">my repo</description>
-    <homepage>https://github.com/loezix/gentoo-repo</homepage>
+    <description lang="en">personal repository</description>
+    <homepage>https://github.com/loezix/gentoo</homepage>
     <owner type="person">
-      <email>loezix@icloud.com</email>
+      <email></email>
       <name>loezix</name>
     </owner>
-    <source type="git">https://github.com/loezix/gentoo-repo.git</source>
-    <source type="git">git://github.com/loezix/gentoo-repo.git</source>
+    <source type="git">https://github.com/loezix/gentoo.git</source>
+    <source type="git">git://github.com/loezix/gentoo.git</source>
   </repo>
 </repositories>
