@@ -88,7 +88,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	eapply "${FILESDIR}/xdg-desktop-portal-hyprland-1.3.1_use_sys_sdbus-c++.patch"
+	eapply "${FILESDIR}/${PN}-${PV}_use_sys_sdbus-c++.patch"
 	sed -i "/add_compile_options(-O3)/d" "${S}/CMakeLists.txt" || die
 	cmake_src_prepare
 }
