@@ -23,7 +23,7 @@ fi
 LICENSE="MIT"
 SLOT="0"
 IUSE="elogind qt6 systemd"
-REQUIRED_USE="elogind qt6 systemd"
+REQUIRED_USE="qt6 ?? ( elogind systemd )"
 
 DEPEND="
 	>=media-video/pipewire-0.3.41:=
