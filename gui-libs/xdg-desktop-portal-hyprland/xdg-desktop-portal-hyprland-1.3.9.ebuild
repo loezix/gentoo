@@ -26,15 +26,14 @@ IUSE="elogind qt6 systemd"
 REQUIRED_USE="qt6 ?? ( elogind systemd )"
 
 DEPEND="
-	>=media-video/pipewire-0.3.41:=
+	media-video/pipewire
 	dev-cpp/sdbus-c++
-	dev-libs/hyprlang:=
-	dev-libs/inih
+	dev-libs/hyprlang
 	dev-libs/wayland
 	dev-qt/qtbase:6[gui,widgets]
 	dev-qt/qtwayland:6
+	gui-libs/hyprutils
 	media-libs/mesa
-	sys-apps/util-linux
 	x11-libs/libdrm
 	|| (
 		systemd? ( >=sys-apps/systemd-237 )
@@ -49,8 +48,8 @@ RDEPEND="
 "
 
 BDEPEND="
-	>=dev-libs/wayland-protocols-1.24
 	dev-libs/hyprland-protocols
+	dev-util/hyprwayland-scanner
 	virtual/pkgconfig
 	|| ( >=sys-devel/gcc-13:* >=sys-devel/clang-17:* )
 "
@@ -69,15 +68,15 @@ pkg_setup() {
 	fi
 }
 
-src_unpack() {
-	if [[ ${PV} == 9999 ]]; then
-		git-r3_src_unpack
-	else
-		default
-		rmdir "${S}/subprojects/hyprland-protocols" || die
-		mv "hyprland-protocols-${PROTO_COMMIT}" "${S}/subprojects/hyprland-protocols" || die
-	fi
-}
+# src_unpack() {
+#	if [[ ${PV} == 9999 ]]; then
+#		git-r3_src_unpack
+#	else
+#		default
+#		rmdir "${S}/subprojects/hyprland-protocols" || die
+#		mv "hyprland-protocols-${PROTO_COMMIT}" "${S}/subprojects/hyprland-protocols" || die
+#	fi
+#}
 
 src_prepare() {
 	cmake_src_prepare
