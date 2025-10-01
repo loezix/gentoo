@@ -1,0 +1,13 @@
+<pkgmetadata>
+<maintainer type="person">
+<name>ston</name>
+<email>ston.jia@qq.com</email>
+</maintainer>
+<use>
+<flag name="wayland">enable wayland support</flag>
+<flag name="hwaccel">enable hardware-accelerated rendering support</flag>
+</use>
+<upstream>
+<remote-id type="github">rustdesk/rustdesk</remote-id>
+</upstream>
+</pkgmetadata>
