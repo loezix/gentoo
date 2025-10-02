@@ -173,8 +173,6 @@ src_install() {
 	exeinto "${rustdesk_dir}"
 	insinto "${rustdesk_dir}"
 	doexe $(cargo_target_dir)/rustdesk
-	doexe ${cargo_target_dir}/hbbs
-	doexe ${cargo_target_dir}/hbbr
 	newins "${DISTDIR}/${P}-libsciter-gtk.so" libsciter-gtk.so
 	rm src/ui/*.rs || die
 	newbin "${FILESDIR}/rustdesk.sh" rustdesk
