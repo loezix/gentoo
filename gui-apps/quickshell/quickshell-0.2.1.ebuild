@@ -27,7 +27,7 @@ IUSE="
 	wayland layer-shell session-lock toplevel-management
 	hyprland screencopy
 	X i3
-	tray polkit pipewire mpris pam greetd upower notifications
+	tray policykit pipewire mpris pam greetd upower notifications
 	network bluetooth breakpad
 "
 REQUIRED_USE="
@@ -56,7 +56,6 @@ RDEPEND="
 	pam? ( sys-libs/pam )
 	bluetooth? ( net-wireless/bluez )
 	policykit? (
-		sys-auth/polkit
 		sys-auth/polkit-qt
 	)
 "
