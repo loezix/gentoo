@@ -55,7 +55,7 @@ RDEPEND="
 	pipewire? ( media-video/pipewire )
 	pam? ( sys-libs/pam )
 	bluetooth? ( net-wireless/bluez )
-	polkit? (
+	policykit? (
 		sys-auth/polkit
 		sys-auth/polkit-qt
 	)
@@ -111,7 +111,7 @@ src_configure() {
 		-DSERVICE_PIPEWIRE=$(usex pipewire)
 		-DSERVICE_MPRIS=$(usex mpris)
 		-DSERVICE_PAM=$(usex pam)
-		-DSERVICE_POLKIT=$(usex polkit)
+		-DSERVICE_POLKIT=$(usex policykit)
 		-DSERVICE_GREETD=$(usex greetd)
 		-DSERVICE_UPOWER=$(usex upower)
 		-DSERVICE_NOTIFICATIONS=$(usex notifications)
