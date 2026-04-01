@@ -56,7 +56,7 @@ RDEPEND="
 	pam? ( sys-libs/pam )
 	bluetooth? ( net-wireless/bluez )
 	policykit? (
-		sys-auth/polkit-qt
+		sys-auth/hyprpolkitagent
 	)
 "
 DEPEND="${RDEPEND}"
